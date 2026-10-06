@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Trending Vidio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #181818;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 6px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .video-card {
+      background: #1b1b1b;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      background: #000;
+    }
+
+    .info {
+      padding: 18px;
+    }
+
+    .info h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .info p {
+      color: #aaa;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .play-button {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+      padding: 13px;
+      border: 0;
+      border-radius: 8px;
+      background: #fff;
+      color: #111;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .play-button:hover {
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* Histats */
+    #histats_counter {
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🔥 Trending Vidio</h1>
+    <p>Watch trending videos</p>
+  </header>
+
+  <main class="container">
+
+    <div class="video-card">
+
+      <video
+        id="trendingVideo"
+        autoplay
+        muted
+        playsinline
+        controls
+        preload="auto"
+      >
+        <source
+          src="https://cdn.videy.co/VawkzVkO1.mp4"
+          type="video/mp4"
+        >
+
+        Browser Anda tidak mendukung pemutar video HTML5.
+      </video>
+
+      <div class="info">
+        <h2>Trending Video</h2>
+
+        <p></p>
+
+        <button class="play-button" onclick="playVideo()">
+          ▶ Watch Now
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 Trending Vidio
+
+    <!-- Histats.com (div with counter) -->
+    <div id="histats_counter"></div>
+
+    <!-- Histats.com START (async) -->
+    <script type="text/javascript">
+      var _Hasync = _Hasync || [];
+
+      _Hasync.push([
+        'Histats.start',
+        '1,5055942,4,8,210,40,00011111'
+      ]);
+
+      _Hasync.push(['Histats.fasi', '1']);
+      _Hasync.push(['Histats.track_hits', '']);
+
+      (function() {
+        var hs = document.createElement('script');
+        hs.type = 'text/javascript';
+        hs.async = true;
+        hs.src = '//s10.histats.com/js15_as.js';
+
+        (
+          document.getElementsByTagName('head')[0] ||
+          document.getElementsByTagName('body')[0]
+        ).appendChild(hs);
+      })();
+    </script>
+
+    <noscript>
+      <a href="/" target="_blank">
+        <img
+          src="//sstatic1.histats.com/0.gif?5055942&101"
+          alt=""
+          border="0"
+        >
+      </a>
+    </noscript>
+    <!-- Histats.com END -->
+
+  </footer>
+
+  <script>
+    const video = document.getElementById("trendingVideo");
+
+    function playVideo() {
+      video.play().catch(function(error) {
+        console.log("Autoplay diblokir browser:", error);
+      });
+    }
+
+    // Coba autoplay ketika halaman selesai dimuat
+    window.addEventListener("load", function() {
+      video.play().catch(function() {
+        console.log("Silakan tekan tombol Putar Video.");
+      });
+    });
+  </script>
+
+</body>
+</html>
